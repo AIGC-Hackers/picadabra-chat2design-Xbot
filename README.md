@@ -257,3 +257,92 @@ For more information on the technologies used in this project:
 - [Cloudflare Workflows Guide](https://developers.cloudflare.com/workflows/get-started/guide/)
 - [Cloudflare Workers API](https://developers.cloudflare.com/workflows/build/workers-api/)
 - [Cloudflare Workflows Rules](https://developers.cloudflare.com/workflows/build/rules-of-workflows/)
+
+---
+
+## 🏗️ System Architecture
+
+Picadabra is built with a scalable, serverless architecture leveraging Cloudflare's ecosystem. Here's a breakdown of the system components:
+
+### 1. High-Level Architecture
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│                 │    │                 │    │                 │
+│  Twitter API    │◄───┤  Cloudflare     │◄───┤  AI Services    │
+│  Integration    │    │  Workers        │    │  (Gemini/GPT-4) │
+│                 │    │                 │    │                 │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+        ▲                      │                     ▲
+        │                      ▼                     │
+        │               ┌─────────────────┐          │
+        │               │                 │          │
+        └───────────────┤  Workflows &    ├──────────┘
+                        │  Processing     │
+                        │                 │
+                        └─────────────────┘
+                                │
+                                ▼
+                  ┌───────────────────────────┐
+                  │                           │
+                  │  Storage (KV, R2, D1)     │
+                  │                           │
+                  └───────────────────────────┘
+```
+
+### 2. Core Components
+
+#### Twitter Integration Layer
+
+- **Twitter API Client**: Handles authentication, tweet fetching, and replies
+- **Webhook Handler**: Processes incoming mentions and events
+- **OAuth Flow**: Manages Twitter authentication and token refresh
+
+#### Processing Pipeline
+
+- **Workflow Orchestration**: Managed by Cloudflare Workflows
+- **Task Management**: Tracks and maintains state of processing tasks
+- **Rate Limiting**: Prevents abuse and ensures fair usage
+
+#### AI Services
+
+- **Gemini Integration**: Processes text prompts and generates image modifications
+- **GPT Integration**: Alternative AI backend for text understanding
+- **Image Processing**: Handles image transformations based on natural language
+
+#### Storage Layer
+
+- **D1 Database**: SQL storage for task tracking and user data
+- **KV Store**: Fast key-value store for caching and configuration
+- **R2 Storage**: Object storage for images and media files
+
+### 3. Request Flow
+
+1. **Tweet Detection**:
+
+   - User mentions @picadabra with a prompt
+   - Twitter webhook notifies the application
+
+2. **Task Creation**:
+
+   - System creates a processing task
+   - Task is queued in the workflow
+
+3. **AI Processing**:
+
+   - Text is analyzed by AI (Gemini/GPT)
+   - AI generates or modifies images based on prompt
+   - Results are stored in R2
+
+4. **Response**:
+   - System posts a reply tweet with the generated image
+   - Task is marked as complete
+
+### 4. Scalability & Performance
+
+- **Serverless Architecture**: Automatically scales with demand
+- **Edge Computing**: Deployed globally for low-latency responses
+- **Asynchronous Processing**: Handles multiple requests concurrently
+- **Resilient Workflow**: Includes retry mechanisms for transient failures
+
+This architecture ensures Picadabra can handle varying loads while maintaining reliability and performance across global users.
