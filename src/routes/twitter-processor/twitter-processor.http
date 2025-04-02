@@ -1,0 +1,44 @@
+# @baseUrl = http://localhost:8787/api/twitter-processor
+@baseUrl = https://twitter-chat2design.k-xshar.workers.dev/api/twitter-processor
+
+### Process Twitter Task
+POST {{baseUrl}}/process
+Content-Type: application/json
+
+{
+  "taskId": "tCHhdwOWbCIdqhJ2QT7oh"
+}
+
+### Create New Task
+POST {{baseUrl}}/tasks
+Content-Type: application/json
+
+{
+  "tweetId": "1906001691784405458",
+  "mentionId": "1906001691784405458",
+  "mentionTweetUrl": "https://twitter.com/user/status/1906001691784405458"
+}
+
+### Get Recent Tasks
+# GET {{baseUrl}}/tasks/recent?limit=5
+# Accept: application/json
+
+### Get Pending Tasks
+GET {{baseUrl}}/tasks/pending?limit=5
+Accept: application/json
+
+### Get Task Details
+GET {{baseUrl}}/tasks/tCHhdwOWbCIdqhJ2QT7oh
+Accept: application/json
+
+### Trigger Task Workflow
+POST {{baseUrl}}/tasks/tCHhdwOWbCIdqhJ2QT7oh/trigger-workflow
+Accept: application/json
+
+### Manually Trigger Twitter Mentions Retrieval
+GET {{baseUrl}}/mentions
+Accept: application/json
+
+### Manually Process Recent Mentions
+POST {{baseUrl}}/mentions/process-recent?limit=3
+Content-Type: application/json

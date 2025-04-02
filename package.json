@@ -1,0 +1,36 @@
+{
+  "name": "twitter-chat2design",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --local",
+    "build": "vite build",
+    "wrangler": "wrangler",
+    "secrets:push": "wrangler secret bulk put secrets.json",
+    "preview": "wrangler dev --local",
+    "deploy": "rm -rf .wrangler && wrangler deploy",
+    "local-server": "bun src/twitter-api/auth/setup-local-callback-server.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "db:local": "wrangler d1 execute twitter-bot --file src/db/migrations/0000_premium_lightspeed.sql --local",
+    "db:remote": "wrangler d1 execute twitter-bot --file src/db/migrations/0000_premium_lightspeed.sql --remote"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "drizzle-kit": "^0.30.6",
+    "drizzle-orm": "^0.41.0",
+    "hono": "^4.7.5",
+    "nanoid": "^5.1.5"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^0.1.15",
+    "@cloudflare/workers-types": "^4.20250214.0",
+    "@types/nanoid": "^3.0.0",
+    "@types/node": "^22.13.14",
+    "@vitest/coverage-v8": "^1.3.1",
+    "vite": "^6.1.1",
+    "vite-plugin-ssr-hot-reload": "^0.2.2",
+    "vitest": "^1.6.1",
+    "wrangler": "^4.4.0"
+  }
+}
