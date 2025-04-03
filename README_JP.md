@@ -236,7 +236,9 @@ MIT ライセンス
 ## 🌐 リンク
 
 🔗 ライブボット: https://x.com/picadabra
+
 🌍 ウェブサイト: https://a1d.ai
+
 🧑‍💻 作者: @sharqwy, @Deniffer_001
 
 a1d.aiチームによる💬 + 🎨のプロダクト
