@@ -1,6 +1,6 @@
 # Picadabra 🧙‍♂️✨ – Chat-to-Design X Bot
 
-[English](README.md) | [中文](README_CN.md)
+[English](README.md) | [中文](README_CN.md) | [日本語](README_JP.md)
 
 Picadabra is an open-source Twitter bot that transforms text prompts into stunning visuals using generative AI. Built with the power of **Gemini** or **ChatGPT-4o**, it lets users create or edit images simply by tweeting at the bot.
 
@@ -228,7 +228,7 @@ How to contribute:
 
 1. 🍴 Fork this repo
 2. 🔧 Create a feature branch: `git checkout -b new-feature`
-3. ✅ Commit your changes: `git commit -am 'Add new feature'`
+3. ✅ Commit your changes: `git commit -am 'Add new feature`
 4. 🚀 Push to the branch: `git push origin new-feature`
 5. 🔁 Create a new Pull Request
 
