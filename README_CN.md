@@ -1,6 +1,6 @@
 # Picadabra 🧙‍♂️✨ – 对话式设计 X 机器人
 
-[English](README.md) | [中文](README_CN.md)
+[English](README.md) | [中文](README_CN.md) | [日本語](README_JP.md)
 
 Picadabra 是一个开源的 Twitter 机器人，它利用生成式 AI 将文本提示转换为精美的视觉效果。通过 **Gemini** 或 **ChatGPT-4o** 的强大功能，用户只需向机器人发推文即可创建或编辑图像。
 
