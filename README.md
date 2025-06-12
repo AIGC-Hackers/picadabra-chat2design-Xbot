@@ -1,4 +1,14 @@
+<div align="center">
+        
 # Picadabra 🧙‍♂️✨ – Chat-to-Design X Bot
+
+[![License: MIT](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/MIT)
+[![Release](https://img.shields.io/badge/Release-v1.0.1-green.svg)](https://github.com/GeeMoose/picadabra-chat2design-Xbot/releases)
+[![Twitter Follow](https://img.shields.io/twitter/follow/picadabra?style=social)](https://x.com/picadabra)
+</div>
+
+
+
 
 [English](README.md) | [中文](README_CN.md) | [日本語](README_JP.md)
 
